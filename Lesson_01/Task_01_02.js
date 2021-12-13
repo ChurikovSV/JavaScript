@@ -2,7 +2,6 @@
 Вывести admin (должно вывести «Василий»).
 */
 
-
 var admin;
 var name = "Василий";
     admin = name;
