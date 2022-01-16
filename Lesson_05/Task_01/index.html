@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="style.css">
+	<title>Task_05</title>
+</head>
+<body>
+	<script>
+
+		function startScript() {
+			var pasteResult = document.getElementById('pasteResult'),
+				pasteTd,
+
+				figuresWhite = [
+						//пешки
+					['&#9817;', '&#9817;', '&#9817;', '&#9817;', '&#9817;', '&#9817;', '&#9817;', '&#9817;'],
+						//фигуры
+					['&#9814;', '&#9816;', '&#9815;', '&#9813;', '&#9812;', '&#9815;', '&#9816;', '&#9814;']
+				],
+
+				figuresBlack = [
+						//фигуры
+					['&#9823;', '&#9823;', '&#9823;', '&#9823;', '&#9823;', '&#9823;', '&#9823;', '&#9823;'],
+						//пешки
+					['&#9820;', '&#9822;', '&#9821;', '&#9819;', '&#9818;', '&#9821;', '&#9822;', '&#9820;']
+				];
+
+
+			//таблица
+			var boardTable = document.createElement('table');
+  			pasteResult.appendChild(boardTable);
+
+  			for (var row = 1; row <= 10; row++) {
+				var boardTr = document.createElement('tr');
+	  			boardTable.appendChild(boardTr);
+
+	  			for (var col = 1; col <= 10; col++) {
+					var boardTd = document.createElement('td');
+					pasteTd = '';
+					if (row > 1 && row < 10 && (col == 1 || col == 10)) {
+						boardTd.className = 'boardNumbers';
+						pasteTd+= 8 - row + 2;
+					}
+
+					if (col > 1 && col < 10) {
+
+						if (((row%2 != 0 && col%2 == 0) || (row%2 == 0 && col%2 != 0)) && (row > 1 && row < 10)) {
+							boardTd.style.background = 'gray';
+						}
+
+						if (row == 1 || row == 10) {
+							boardTd.className = 'boardLetters';
+							pasteTd+= '&#' + (65 + col - 2); // HTML - A-H
+						}
+
+						if (row == 8 || row == 9) {
+							boardTd.className = 'boardFigures';
+							pasteTd+= figuresWhite[row-8][col-2];
+						}
+
+						if (row == 2 || row == 3) {
+							boardTd.className = 'boardFigures';
+							pasteTd+= figuresBlack[row-2][col-2];
+						}
+
+					}
+
+					boardTd.innerHTML = pasteTd;
+					boardTr.appendChild(boardTd);
+	  			}
+  			}
+
+		}
+
+	</script>
+
+	<div id="textTask">
+		<h2>Практическое задание №_5</h2>
+
+		<hr>
+		<h3>Задача 1</h3>
+		<p>
+			1. Создать функцию, генерирующую шахматную доску. Можно использовать любые html-теги. Доска должна быть верно разлинована на черные и белые ячейки. Строки должны нумероваться числами от 1 до 8, столбцы — латинскими буквами A, B, C, D, E, F, G, H. Доска должна быть разлинована соответствующим образом, т.е. чередовать черные и белые ячейки. Строки должны нумероваться числами от 1 до 8, столбцы – латинскими буквами A, B, C, D, E, F, G, H.
+		</p>
+		<hr>
+		<p>
+			<a href="javascript:void(0);" onclick="startScript();">Сгенерировать шахматную доску</a>
+		</p>
+
+	</div>
+
+	<div id="pasteResult">
+	</div>
+
+</body>
+</html>
