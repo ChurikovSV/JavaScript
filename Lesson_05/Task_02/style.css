@@ -1,0 +1,21 @@
+html {
+    background: #cfcfcf;
+}
+
+table {
+    margin: auto;
+    border-collapse: collapse;
+    border-color: black;
+    background: rgb(255, 255, 255);
+}
+
+td {
+
+    width: 55px;
+    height: 50px;
+    border: 2px solid black;
+      text-align: left;
+      padding-left: 9px;
+      padding-right: 9px;
+    white-space: nowrap;
+}
