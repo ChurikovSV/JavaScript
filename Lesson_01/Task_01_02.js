@@ -2,7 +2,8 @@
 Вывести admin (должно вывести «Василий»).
 */
 
+
 var admin;
 var name = "Василий";
     admin = name;
-alert("Имя администратора - " + admin)
+alert("Имя администратора = " + admin)
